@@ -1,0 +1,41 @@
+{
+  "name": "io.pettaxi.server",
+  "version": "1.0.0",
+  "description": "pet taxi server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js --exec babel-node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catus-io/pet-taxi-server.git"
+  },
+  "keywords": [
+    "pet",
+    "transportation"
+  ],
+  "author": "CATUS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/catus-io/pet-taxi-server/issues"
+  },
+  "homepage": "https://github.com/catus-io/pet-taxi-server#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongodb": "^3.1.10",
+    "websocket": "^1.0.28"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-preset-env": "^1.7.0"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}
