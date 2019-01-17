@@ -1,8 +1,12 @@
 import express from 'express'
 const router = express.Router()
 
+// const userController = require('./controllers/user.controllers')
+import * as userController from './controllers/user.controller'
+
 router
   .get('/', (req, res) => res.send('ok'))
-  .post('/signup', (req, res) => console.log('okay'))
+  .post('/signup', userController.create)
+  // .post('/signup', (req, res) => console.log('okay'))
 
 export default router
