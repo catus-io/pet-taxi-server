@@ -16,12 +16,12 @@ const findUserOne = object => {
     }
   })
 }
-const insertUser = (email, nickname, password, createdDateAt) => {
+const insertUser = user => {
   return MongoClient.connect(url, { useNewUrlParser: true })
   .then(client => {
     const col = client.db(dbName).collection(colName);
     try {
-      return col.insertOne({email: email, nickname: nickname, password: password, createdDateAt: createdDateAt})
+      return col.insertOne(user)
     }
     finally {
       client.close()
