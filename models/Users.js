@@ -7,6 +7,7 @@ const findUserByEmail = email => {
   return MongoClient.connect(url, { useNewUrlParser: true })
   .then(client => {
     const col = client.db(dbName).collection(colName);
+    console.log('find:',email)
     try {
       return col.findOne({email: email})
     }
