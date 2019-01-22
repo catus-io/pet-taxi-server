@@ -38,7 +38,7 @@ const createToken = (user) => {
       },
       'should be create token',
       {
-        expiresIn: '7d',
+        expiresIn: '1d',
         issuer: 'CATUS',
         subject: 'auth'
       },
@@ -49,6 +49,17 @@ const createToken = (user) => {
     )
   })
 }
+// token 유효성 검사
+const validate = token => {
+  console.log(token)
+  return new Promise((resolve, reject) => {
+    jwt.verify(token, 'should be create token', (err, decoded) => {
+      if(err) reject();
+      console.log(decoded)
+      resolve(decoded);
+    });
+  });
+}
 
 const validateToken = (req, res, next) => {
   const token = req.headers['authorization']
@@ -58,4 +69,4 @@ const validateToken = (req, res, next) => {
     next()
   })
 }
-export { findUserOne, insertUser, createToken, validateToken}
+export { findUserOne, insertUser, createToken, validate, validateToken }

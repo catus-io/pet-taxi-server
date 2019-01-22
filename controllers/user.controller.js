@@ -1,5 +1,13 @@
 import * as Users from '../models/Users'
 
+const verifyToken = (req, res) => {
+  const token = req.headers['authorization'] || req.params.token
+  const respond = () => res.json({status: 1})
+  const onError = () => res.status(409).json({status: 0})
+
+  Users.validate(token).then(respond).catch(onError)
+}
+
 const create = (req, res) => {
   const { email, nickname, password } = req.body
   let userByEmail = null
@@ -42,4 +50,4 @@ const login = (req, res) => {
   .catch(onError)
 }
 
-export { create, login }
+export { create, login, verifyToken }
