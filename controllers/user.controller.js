@@ -26,6 +26,7 @@ const create = (req, res) => {
 
 const login = (req, res) => {
   const { email, password } = req.body
+  console.log(`email:`, email)
   const findUserByEmail = () => Users.findUserOne({email: email})
   const createToken = user => {
     if(!user) throw new Error('이메일이 없습니다.')
