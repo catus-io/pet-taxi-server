@@ -17,5 +17,11 @@ const searchAddr = (req, res) => {
       res.json(juso)
     })
 }
+const create = (req, res) => {
+  const token = req.headers['authorization'] || req.params.token
+  console.log(req.body)
+  console.log('token : ', token)
+  res.json({status: 1})
+}
 
-export { searchAddr }
+export { searchAddr, create }

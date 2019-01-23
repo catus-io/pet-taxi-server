@@ -9,5 +9,6 @@ router
   .post('/signin', userController.login)
   .post('/verify', userController.verifyToken)
   .post('/search', bookingController.searchAddr)
+  .post('/book', bookingController.create)
 
 export default router
