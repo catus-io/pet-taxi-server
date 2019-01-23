@@ -1,14 +1,13 @@
 import express from 'express'
 const router = express.Router()
-
-// const userController = require('./controllers/user.controllers')
 import * as userController from './controllers/user.controller'
+import * as bookingController from './controllers/booking.controller'
 
 router
   .get('/', (req, res) => res.send('ok'))
   .post('/signup', userController.create)
   .post('/signin', userController.login)
   .post('/verify', userController.verifyToken)
-  // .post('/signup', (req, res) => console.log('okay'))
+  .post('/search', bookingController.searchAddr)
 
 export default router
